@@ -1,0 +1,22 @@
+card {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background-color: azure
+}
+
+.search-box {
+    border-radius: 40px;
+    padding: 30px;
+}
+
+.search-txt {
+    border-radius: 9px;
+}

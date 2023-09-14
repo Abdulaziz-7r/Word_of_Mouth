@@ -1,0 +1,24 @@
+<!-- some of the content of the file will be inherited from the Base page by using jinja -->
+{% extends "base.html" %} {% block title %}History{% endblock %}
+
+{% block content%}
+
+<h1 align="center">History</h1>
+
+<ul class="list-group list-group-flush" id="productsList">
+
+  {% for product in user.products %}
+  <form method="POST">
+  
+  <li class="list-group-item">
+    {{ product.name }}
+    <input type="text" style="display: none;" name="productId" id="productId" value="{{ product.id }}">
+    <button  type="submit" class="btn btn-primary pull-right">Check</button>
+  </li>
+  
+</form>
+  {% endfor %}
+
+</ul>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+<!-- some of the content of the file will be inherited from the Base page by using jinja -->
+{% extends "base.html" %} {% block title %}Chart{% endblock %}
+
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>ChartJS</title>
+</head>
+<body>
+    <div class="d-flex justify-content-center">
+        <canvas id="doughnut" width="900" height="400"></canvas>
+        <script>
+            var ctx = document.getElementById("doughnut").getContext("2d");
+            var lineChart = new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: ['Positive', 'Negative'],
+                    datasets: [
+                        {
+                            label: "Points",   
+                            backgroundColor: ['green', 'red'],
+                            data: [ {{ positive }} , {{ negative }} ]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false
+                }
+            })    
+        </script>
+    </div>
+    <div class="float-right">
+        <h2> Number of Tweets: {{ TweetDataFrame.index|length }}</h2>
+    </div>
+    
+    <div class="float-none">
+        <h2 align="center">Tweets</h2>
+        <ul class="list-group list-group-flush" id="TweetsList">
+
+            {% for index,row in TweetDataFrame.iterrows() %}
+            
+            <li class="list-group-item">
+              {{ row['Tweet'] + " | " + "Polarity: " + row['Polarity'] }}
+            </li>
+            
+            {% endfor %}
+          
+          </ul>
+    </div>
+</body>
+</html>
+{% endblock %}

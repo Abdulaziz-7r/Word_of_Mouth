@@ -1,0 +1,34 @@
+<!-- some of the content of the file will be inherited from the Base page by using jinja -->
+{% extends "base.html" %} {% block title %}Main Menu{% endblock %}
+
+ {% block content%}
+ <div class="mainContainer">
+  <div class="row g-3">
+      <div class="col-12 col-md-6 col-lg-4">
+          <div class="card">
+              <img src="{{ url_for('static', filename='Picture/NewRequest.png') }}" class="rounded mx-auto d-block" alt="New Request Icon" width="50" height="50">
+              <div class="card-body">
+                  <h3 class="card-title text-center">New Request</h3>
+                  <p class="card-text">
+                      A service to start a new request for a specific product/service
+                  </p>
+                  <a href="/search" class="btn btn-primary">select</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+          <div class="card">
+              <img src="{{ url_for('static', filename='Picture/RequestHistory.png') }}" class="rounded mx-auto d-block" alt="Previous Requests Icon" width="50" height="50">
+              <div class="card-body">
+                  <h3 class="card-title text-center">Previous Requests</h3>
+                  <p class="card-text">
+                      A service to check the request that you create before
+                  </p>
+                  <a href="/history" class="btn btn-primary">select</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+  {% endblock %}

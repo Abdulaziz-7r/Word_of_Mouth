@@ -1,0 +1,16 @@
+<!-- some of the content of the file will be inherited from the Base page by using jinja -->
+{% extends "base.html" %}
+{% block content%}
+<div class="card" style="width: 28rem; height: 300px;">
+    <h5 class="card-header">Search Word-of-Mouth</h5>
+    <div class="card-body">
+      <form method="POST">
+        <div class="search-box">
+          <input id= "product" name="product" class="search-txt" type="text" placeholder="Enter Product Name">
+        <br>
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
